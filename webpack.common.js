@@ -5,7 +5,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: './src/index.js',
+    index: './src/index.tsx',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -19,7 +19,7 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: ['*','.js','.jsx'],
+    extensions: ['*','.ts','.tsx','.js','.jsx'],
   },
   module: {
     rules: [
@@ -47,6 +47,7 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'ts-loader',
